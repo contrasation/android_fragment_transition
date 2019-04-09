@@ -44,7 +44,7 @@ public class MainFragment extends Fragment {
                 //　詳細画面へ値を渡す
                 DetailFragment fragment = new DetailFragment();
                 Bundle bundle = new Bundle();
-                bundle.putInt("selected", position);
+                bundle.putInt("Selected", position);
                 fragment.setArguments(bundle);
 
                 // 詳細画面を呼び出す

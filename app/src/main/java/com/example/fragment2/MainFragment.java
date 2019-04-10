@@ -11,9 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.fragment2.dummy.DummyContent;
+
 import java.util.ArrayList;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements DataListFragment.OnListFragmentInteractionListener {
     public MainFragment() {
     }
 
@@ -23,6 +25,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container , false);
         return view;
     }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -41,21 +44,54 @@ public class MainFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //　詳細画面へ値を渡す
-                DetailFragment fragment = new DetailFragment();
-                Bundle bundle = new Bundle();
-                bundle.putInt("Selected", position);
-                fragment.setArguments(bundle);
 
-                // 詳細画面を呼び出す
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.main_fragment, fragment);
+                if (position == 0) {
+                    //　詳細画面へ値を渡す
+                    DetailFragment fragment = new DetailFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("Selected", position);
+                    fragment.setArguments(bundle);
 
-                //戻るボタンで戻ってこられるように
-                transaction.addToBackStack(null);
-                transaction.commit();
+                    // 詳細画面を呼び出す
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.main_fragment, fragment);
+
+                    //戻るボタンで戻ってこられるように
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+
+                if (position == 1){
+
+//                    final ArrayList<String> data_list = new ArrayList<>();
+//                    data_list.add("機能1");
+//                    data_list.add("機能2");
+//                    data_list.add("機能3");
+
+                    DataListFragment fragment = DataListFragment.newInstance(1);
+                    //どんなデータを渡せばよい？？
+//                    Bundle bundle = new Bundle();
+//                    bundle.putInt("Selected", position);
+//                    fragment.setArguments(bundle);
+
+
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.list, fragment);
+
+                    //戻るボタンで戻ってこられるように
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
             }
         });
     }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+        // something
+    }
+
+
 }

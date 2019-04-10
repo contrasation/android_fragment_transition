@@ -1,13 +1,12 @@
-D/AndroidRuntime: Shutting down VM
 E/AndroidRuntime: FATAL EXCEPTION: main
-    Process: com.example.fragment2, PID: 8800
-    java.lang.RuntimeException: com.example.fragment2.MainActivity@1488d2a must implement OnListFragmentInteractionListener
-        at com.example.fragment2.DataListFragment.onAttach(DataListFragment.java:84)
-        at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1404)
-        at android.support.v4.app.FragmentTransition.addToFirstInLastOut(FragmentTransition.java:1195)
-        at android.support.v4.app.FragmentTransition.calculateFragments(FragmentTransition.java:1078)
-        at android.support.v4.app.FragmentTransition.startTransitions(FragmentTransition.java:117)
-        at android.support.v4.app.FragmentManagerImpl.executeOpsTogether(FragmentManager.java:2408)
+    Process: com.example.fragment2, PID: 9071
+    java.lang.IllegalArgumentException: No view found for id 0x7f070052 (com.example.fragment2:id/list) for fragment DataListFragment{4de88a #1 id=0x7f070052}
+        at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1454)
+        at android.support.v4.app.FragmentManagerImpl.moveFragmentToExpectedState(FragmentManager.java:1784)
+        at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1852)
+        at android.support.v4.app.BackStackRecord.executeOps(BackStackRecord.java:802)
+        at android.support.v4.app.FragmentManagerImpl.executeOps(FragmentManager.java:2625)
+        at android.support.v4.app.FragmentManagerImpl.executeOpsTogether(FragmentManager.java:2411)
         at android.support.v4.app.FragmentManagerImpl.removeRedundantOperationsAndExecute(FragmentManager.java:2366)
         at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:2273)
         at android.support.v4.app.FragmentManagerImpl$1.run(FragmentManager.java:733)
@@ -18,5 +17,4 @@ E/AndroidRuntime: FATAL EXCEPTION: main
         at java.lang.reflect.Method.invoke(Native Method)
         at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726)
         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616)
-I/Process: Sending signal. PID: 8800 SIG: 9
-Application terminated.
+I/Process: Sending signal. PID: 9071 SIG: 9

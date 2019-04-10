@@ -15,7 +15,7 @@ import com.example.fragment2.dummy.DummyContent;
 
 import java.util.ArrayList;
 
-public class MainFragment extends Fragment implements DataListFragment.OnListFragmentInteractionListener {
+public class MainFragment extends Fragment {
     public MainFragment() {
     }
 
@@ -71,9 +71,9 @@ public class MainFragment extends Fragment implements DataListFragment.OnListFra
 
                     DataListFragment fragment = DataListFragment.newInstance(1);
                     //どんなデータを渡せばよい？？
-//                    Bundle bundle = new Bundle();
-//                    bundle.putInt("Selected", position);
-//                    fragment.setArguments(bundle);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("Selected", position);
+                    fragment.setArguments(bundle);
 
 
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -87,11 +87,5 @@ public class MainFragment extends Fragment implements DataListFragment.OnListFra
             }
         });
     }
-
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-        // something
-    }
-
 
 }
